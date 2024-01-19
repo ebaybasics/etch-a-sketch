@@ -54,6 +54,14 @@
     border: solid 6px #000022;
     font-weight: 600;
 }
+.control.color-red{
+    background-color: red;
+}
+
+.control.color-blue{
+    background-color: blue;
+}
+
 .control.color-random {
     background-image: linear-gradient(red, yellow);
 }
