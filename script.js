@@ -1,5 +1,5 @@
 'use-strict'
-const NUMCELLS = 16;
+const NUMCELLS = 50;
 
 const gameBox = document.querySelector('.game-box');
 const reset = document.querySelector('.reset');
@@ -19,8 +19,8 @@ const newGrid = function(gridSize) {
     
 };
 
-const changeGrid = function() {
-    const numCells = NUMCELLS;
+const changeGrid = function(gridSize) {
+    const numCells = gridSize;
     const flexB = ((-.05*numCells+6));
     // newGrid(numCells);
 
@@ -45,29 +45,30 @@ const changeGrid = function() {
 
 };
 
-newGrid(NUMCELLS);
-changeGrid();
+const res = function (newGridSize) {
+    const gridCells = document.querySelectorAll('.grid-cell');
+    gridCells.forEach((cell) => {
+        cell.remove();
+    });
+    newGrid(newGridSize);
+    changeGrid(newGridSize);
+}
 
 reset.addEventListener('click', (e) => {
     e.preventDefault();
-
-    const gridCells = document.querySelectorAll('.grid-cell');
-    gridCells.forEach((cell) => {
-        cell.style.backgroundColor = '#99AABB';
-    })
-    
+    res(NUMCELLS);   
 });
 
 penLarge.addEventListener('click', (e) => {
     e.preventDefault();
-    const gridCells = document.querySelectorAll('.grid-cell');
-    gridCells.forEach(cell => {
-        // console.log(window.getComputedStyle(cell).backgroundColor)
-        if (window.getComputedStyle(cell).backgroundColor == 'rgb(153 , 170,187') {
-            console.log('blue')
-        }
-    })
+    const gridSize = 16;
+    res(gridSize);
+    newGrid(gridSize);
+    changeGrid(gridSize);
+
 
 })
 
 
+newGrid(NUMCELLS);
+changeGrid(NUMCELLS);
