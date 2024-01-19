@@ -62,6 +62,10 @@
     background-color: blue;
 }
 
+.control.color-darken{
+    background-color: #999999;
+}
+
 .control.color-random {
     background-image: linear-gradient(red, yellow);
 }

@@ -10,6 +10,7 @@ const penSmall = document.querySelector('.pen-small');
 const colorRand = document.querySelector('.color-random');
 const colorRed = document.querySelector('.color-red');
 const colorBlue = document.querySelector('.color-blue');
+const colorDarken = document.querySelector('.color-darken');
 
 const colorPicker = (color) => {
     colorKeys = {
@@ -41,8 +42,8 @@ const colorPicker = (color) => {
 };
 
 const colorChecker = () => {
-    if (initColorCode == '100') return colorPicker('red');
-    if (initColorCode == '001') return colorPicker('blue');
+    if (initColorCode == '100') return colorPicker('#FF0000');
+    if (initColorCode == '001') return colorPicker('#0000ff');
     if (initColorCode == '000') return colorPicker('black');
     return colorPicker();
 }
@@ -99,9 +100,10 @@ const colorGrid = function (num) {
     gridCells.forEach((gridCell)=> {
         gridCell.addEventListener('mouseover', (e) => {
             e.preventDefault();
-
+            // gridCell.style.backgroundColor = colorChecker();
             if (e.buttons == 1) {
                     gridCell.style.backgroundColor = colorChecker();
+                    
 
             }
         });
@@ -132,24 +134,21 @@ penLarge.addEventListener('click', (e) => {
     e.preventDefault();
     const gridSize = 16;
     res(gridSize);
-    newGrid(gridSize);
-    changeGrid(gridSize);
+
 });
 
 penMed.addEventListener('click', (e) => {
     e.preventDefault();
-    const gridSize = 50;
+    const gridSize = 25;
     res(gridSize);
-    newGrid(gridSize);
-    changeGrid(gridSize);
+
 });
 
 penSmall.addEventListener('click', (e) => {
     e.preventDefault();
-    const gridSize = 100;
+    const gridSize = 50;
     res(gridSize);
-    newGrid(gridSize);
-    changeGrid(gridSize);
+
 });
 
 colorRand.addEventListener('click', (e) => {
@@ -167,6 +166,8 @@ colorBlue.addEventListener('click', e => {
     console.log(initColorCode);
 
 })
+
+
 
 
 
